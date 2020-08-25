@@ -26,13 +26,13 @@ pipeline {
          }
          stage('Security Scan') {
               steps {
-                  aquaMicroscanner imageName: 'alpine:latest', notCompliesCmd: 'exit 1', onDisallowed: 'fail', outputFormat: 'html'
+                  aquaMicroscanner imageName: 'ofosukin/udacity-capstone-cloud-devops:latest', notCompliesCmd: 'exit 1', onDisallowed: 'fail', outputFormat: 'html'
               }
          }
          stage('Deploying to AWS') {
               steps{
                   echo 'Deploying to AWS...'
-                  withAWS(credentials: 'aws-static', region: 'us-west-2') {
+                  withAWS(credentialsId: '282457606471', region: 'us-west-2') {
                       sh "aws eks --region us-west-2 update-kubeconfig --name capstone-production"
                       sh "kubectl config use-context arn:aws:eks:us-west-2:arn:aws:eks:us-west-2:282457606471:cluster/capstone-production"
                       sh "kubectl set image deployments/udacity-capstone-cloud-devops udacity-capstone-cloud-devops=ofosukin/udacity-capstone-cloud-devops:latest"
