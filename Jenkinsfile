@@ -26,8 +26,8 @@ pipeline {
          }
          stage('Security Scan') {
               steps {
-                  sh "MICROSCANNER_TOKEN=MDY0OThlNDY0YTU5 MICROSCANNER_OPTIONS="--html" ./scan.sh udacity-capstone-cloud-devops"
-                  sh "MICROSCANNER_TOKEN=MDY0OThlNDY0YTU5 ./grabhtml.sh udacity-capstone-cloud-devops"
+                  sh "USE_LOCAL=1 MICROSCANNER_TOKEN=MDY0OThlNDY0YTU5 MICROSCANNER_OPTIONS="--html" ./scan.sh udacity-capstone-cloud-devops:latest"
+                  sh "MICROSCANNER_TOKEN=MDY0OThlNDY0YTU5 ./grabhtml.sh udacity-capstone-cloud-devops:latest"
               }
          }
          stage('Deploying to AWS') {
