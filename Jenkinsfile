@@ -26,7 +26,7 @@ pipeline {
          }
          stage('Security Scan') {
               steps {
-                  aquaMicroscanner imageName: 'udacity-capstone-cloud-devops', notCompliesCmd: 'exit 1', onDisallowed: 'fail', outputFormat: 'html'
+                  aquaMicroscanner imageName: 'ofosukin/udacity-capstone-cloud-devops', notCompliesCmd: 'exit 1', onDisallowed: 'fail', outputFormat: 'html'
               }
          }
          stage('Deploying to AWS') {
