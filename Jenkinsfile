@@ -3,30 +3,31 @@ pipeline {
      stages {
          stage('Info') {
               steps {
-                  sh 'echo Starting Pipeline'
+                  sh "echo Starting Pipeline"
               }
          }
          stage('Lint all HTML files') {
               steps {
-                  sh 'tidy -q -e *.html'
+                  sh "tidy -q -e *.html"
               }
          }
          stage('Build Docker Image') {
               steps {
-                  sh 'docker build -t udacity-capstone-cloud-devops .'
+                  sh "docker build -t udacity-capstone-cloud-devops ."
               }
          }
          stage('Push Docker Image') {
               steps {
                   withDockerRegistry([url: "", credentialsId: "dockerhub"]) {
                       sh "docker tag udacity-capstone-cloud-devops ofosukin/udacity-capstone-cloud-devops"
-                      sh 'docker push ofosukin/udacity-capstone-cloud-devops'
+                      sh "docker push ofosukin/udacity-capstone-cloud-devops"
                   }
               }
          }
          stage('Security Scan') {
               steps {
-                  aquaMicroscanner imageName: 'nginx:latest', notCompliesCmd: 'exit 1', onDisallowed: 'fail', outputFormat: 'html'
+                  sh "MICROSCANNER_TOKEN=MDY0OThlNDY0YTU5 MICROSCANNER_OPTIONS="--html" ./scan.sh udacity-capstone-cloud-devops"
+                  sh "MICROSCANNER_TOKEN=MDY0OThlNDY0YTU5 ./grabhtml.sh udacity-capstone-cloud-devops"
               }
          }
          stage('Deploying to AWS') {
