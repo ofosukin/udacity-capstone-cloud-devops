@@ -33,5 +33,5 @@
 </ul>
 
 <h2>Testing</h2>
-The Website is accessible at [Web App](http://a9479c23ed45246a590f57de4a6b6004-204603934.us-west-2.elb.amazonaws.com/)
+The Website is accessible at [WebApp](http://a9479c23ed45246a590f57de4a6b6004-204603934.us-west-2.elb.amazonaws.com/)
 
