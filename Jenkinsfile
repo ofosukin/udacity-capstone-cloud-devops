@@ -20,7 +20,7 @@ pipeline {
               steps {
                   withDockerRegistry([url: "", credentialsId: "dockerhub"]) {
                       sh "docker tag udacity-capstone-cloud-devops:v2 ofosukin/udacity-capstone-cloud-devops"
-                      sh "docker push ofosukin/udacity-capstone-cloud-devops"
+                      sh "docker push ofosukin/udacity-capstone-cloud-devops:v2"
                   }
               }
          }
