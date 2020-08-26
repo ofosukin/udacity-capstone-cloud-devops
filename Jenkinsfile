@@ -30,8 +30,7 @@ pipeline {
                   withAWS(credentials: 'aws-udacity', region: 'us-west-2') {
                       sh "aws eks --region us-west-2 update-kubeconfig --name capstone-production"
                       sh "kubectl config use-context arn:aws:eks:us-west-2:282457606471:cluster/capstone-production"
-                      sh "kubectl delete deployment/udacity-capstone-cloud-devops"
-                      sh "kubectl create deployment udacity-capstone-cloud-devops --image=ofosukin/udacity-capstone-cloud-devops:latest "
+                      sh "kubectl apply -f deployment/deployment.yml"
                       sh "kubectl get deployment"
                       sh "kubectl get pods --all-namespaces"
                       sh "kubectl set image deployment/udacity-capstone-cloud-devops udacity-capstone-cloud-devops=ofosukin/udacity-capstone-cloud-devops:latest"
