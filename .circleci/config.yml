@@ -4,7 +4,7 @@ jobs:
     docker:
       # Use the same Docker base as the project
       - image: nginx:latest
-    working_directory: ~/repo
+    working_directory: ~
     steps:
       - run:
           name: install dependencies
@@ -12,11 +12,11 @@ jobs:
             # Install hadolint
             #sudo wget -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v1.16.3/hadolint-Linux-x86_64 &&\
             #sudo chmod +x /bin/hadolint
-            apt-get update
-            apt-get install build-essential
+            #apt-get update
+            #apt-get install build-essential
 
       # run lints!
       - run:
           name: run lint
           command: |
-            make lint
+            hadolint Dockerfile
