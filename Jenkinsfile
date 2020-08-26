@@ -34,6 +34,7 @@ pipeline {
                       sh "kubectl get deployment"
                       sh "kubectl get pods --all-namespaces"
                       sh "kubectl set image deployment/udacity-capstone-cloud-devops udacity-capstone-cloud-devops=ofosukin/udacity-capstone-cloud-devops:latest"
+                      sh "kubectl delete svc/udacity-capstone-cloud-devops"
                       sh "kubectl apply -f deployment/deployment.yml"
                       sh "kubectl get nodes"
                       sh "kubectl get deployment"
