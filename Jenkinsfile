@@ -13,13 +13,13 @@ pipeline {
          }
          stage('Build Docker Image') {
               steps {
-                  sh "docker build -t udacity-capstone-cloud-devops:v1 ."
+                  sh "docker build -t udacity-capstone-cloud-devops:v2 ."
               }
          }
          stage('Push Docker Image') {
               steps {
                   withDockerRegistry([url: "", credentialsId: "dockerhub"]) {
-                      sh "docker tag udacity-capstone-cloud-devops:v1 ofosukin/udacity-capstone-cloud-devops"
+                      sh "docker tag udacity-capstone-cloud-devops:v2 ofosukin/udacity-capstone-cloud-devops"
                       sh "docker push ofosukin/udacity-capstone-cloud-devops"
                   }
               }
@@ -34,7 +34,7 @@ pipeline {
                       sh "kubectl get deployment"
                       sh "kubectl get pods"
                       sh "kubectl describe pods"
-                      sh "kubectl set image deployment/udacity-capstone-cloud-devops udacity-capstone-cloud-devops=ofosukin/udacity-capstone-cloud-devops:v1"
+                      sh "kubectl set image deployment/udacity-capstone-cloud-devops udacity-capstone-cloud-devops=ofosukin/udacity-capstone-cloud-devops:v2"
                       sh "kubectl get pods"
                       sh "kubectl describe services/udacity-capstone-cloud-devops"
                       sh "kubectl get pod -o wide"
