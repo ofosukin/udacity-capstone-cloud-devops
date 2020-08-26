@@ -34,7 +34,7 @@ pipeline {
                       sh "kubectl get deployment"
                       sh "kubectl get pods"
                       sh "kubectl describe pods"
-                      sh "kubectl set image deployment/udacity-capstone-cloud-devops udacity-capstone-cloud-devops=ofosukin/udacity-capstone-cloud-devops:v2"
+                      sh "kubectl set image deployment/udacity-capstone-cloud-devops udacity-capstone-cloud-devops=ofosukin/udacity-capstone-cloud-devops:latest"
                       sh "kubectl get pods"
                       sh "kubectl describe services/udacity-capstone-cloud-devops"
                       sh "kubectl get pod -o wide"
