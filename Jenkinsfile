@@ -16,7 +16,7 @@ pipeline {
                   sh "docker build -t udacity-capstone-cloud-devops:v1 ."
               }
          }
-         stage("docker_scan") {
+         stage("Security Scan") {
               steps {
                   sh '''
                      #docker run -d --name db arminc/clair-db
