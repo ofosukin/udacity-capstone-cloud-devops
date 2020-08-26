@@ -39,6 +39,7 @@ pipeline {
                       sh "kubectl get deployment"
                       sh "kubectl get pod -o wide"
                       sh "kubectl get service/udacity-capstone-cloud-devops"
+                      sh "kubectl rollout status deployments/udacity-capstone-cloud-devops"
                   }
               }
         }
