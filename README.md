@@ -7,7 +7,7 @@
 <ul>
 	<li>AWS Cloud Fundamentals</li>
         <li>Deploying Infrastructure as Code on Infrastructure as a Service (IaaS) Platform</li>
-	<li>Continuous Integration and Continuous Deployment (CI/CD) with Jenkins, Circleci, etc.</li>
+	<li>Continuous Integration and Continuous Deployment (CI/CD) with <code>Jenkins</code>, <code>Circleci</code>, etc.</li>
 	<li>Microservices with Docker</li>
 	<li>Kubernetes for Microservices Orchestration</li>
 </ul>
@@ -18,7 +18,7 @@
 <ul>
   <li>Run a Simple <code>nginx</code> Docker Application</li>
   <li>Create a Jenkins Pipeline to deploy the containerised application to <code>Amazon Elastic Kubernetes Service (EKS)</code></li>
-  <li>Include Linting, upload to dockerhub, deployment to AWS EKS, and Security scanning of the docker build with Clair-scanner steps in the Jenkinsfile</li>
+  <li>Include steps: Linting, upload to dockerhub, deployment to <code>AWS EKS</code>, and Security scanning of the docker build with <code>Clair-scanner</code> steps in the Jenkinsfile</li>
   <li>Perform and test Rolling Updates</li> 
 </ul>
 
@@ -34,5 +34,5 @@
 
 <h2>Testing</h2>
 ***
-The Website is accessible at <code>http://a9479c23ed45246a590f57de4a6b6004-204603934.us-west-2.elb.amazonaws.com/</code>
+The Website is accessible at [Web App](http://a9479c23ed45246a590f57de4a6b6004-204603934.us-west-2.elb.amazonaws.com/)
 
